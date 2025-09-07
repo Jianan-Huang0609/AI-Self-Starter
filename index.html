@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBA社群AI分享完整方案</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            background: #ffffff;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .nav {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(20px);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #64748b;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover, .nav a.active {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .section {
+            background: #ffffff;
+            margin-bottom: 40px;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section-title h2 {
+            color: #1a1a1a;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .section-title .section-number {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .subsection {
+            margin: 32px 0;
+        }
+
+        .subsection-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .subsection-number {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .subsection h3 {
+            color: #1a1a1a;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+            margin: 32px 0;
+        }
+
+        .survey-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #374151 100%);
+            color: #ffffff;
+        }
+
+        .survey-section .section-title h2,
+        .survey-section .subsection h3 {
+            color: #ffffff;
+        }
+
+        .survey-section .section-number {
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        .survey-section .subsection-number {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .survey-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 16px 0;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .survey-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .concept-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 24px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .concept-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .professional, .simple {
+            padding: 16px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .professional {
+            background: #f8fafc;
+            border-left: 3px solid #64748b;
+        }
+
+        .simple {
+            background: #1a1a1a;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .takeaway {
+            background: linear-gradient(135deg, #1a1a1a 0%, #374151 100%);
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            margin: 32px 0;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .tool-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card h4 {
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tool-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .tool-screenshot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .tool-screenshot img {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .info-source-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .info-source-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #374151 100%);
+            color: #ffffff;
+            padding: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-source-content {
+            padding: 20px;
+        }
+
+        .info-source-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .info-source-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-source-item .name {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .info-source-item .description {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .business-logic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .logic-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .logic-card h4 {
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logic-card ul {
+            margin-left: 20px;
+        }
+
+        .logic-card li {
+            margin: 8px 0;
+            color: #374151;
+        }
+
+        .cursor-info {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 1px solid #cbd5e1;
+            padding: 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+
+        .cursor-screenshot-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .cursor-screenshot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .cursor-screenshot img {
+            max-width: 100%;
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .exhibition-screenshot {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .exhibition-screenshot img {
+            max-width: 100%;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-screenshot {
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        .project-screenshot img {
+            max-width: 100%;
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 24px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-card h4 {
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #64748b;
+            margin-bottom: 16px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .project-link:hover {
+            background: #374151;
+            transform: translateX(2px);
+        }
+
+        .learning-path {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 1px solid #cbd5e1;
+            padding: 32px;
+            border-radius: 12px;
+            margin: 32px 0;
+        }
+
+        .learning-step {
+            margin: 24px 0;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .learning-step h4 {
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .learning-step-content {
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .arrow-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .arrow-list li {
+            position: relative;
+            padding-left: 24px;
+            margin: 8px 0;
+            color: #374151;
+        }
+
+        .arrow-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #64748b;
+            font-weight: bold;
+        }
+
+        .version-grid {
+            display: grid;
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .version-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .version-card h4 {
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .version-card .goal {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 12px 0;
+            font-weight: 500;
+        }
+
+        .version-card .tech-path {
+            margin: 12px 0;
+        }
+
+        .version-card .resources {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 24px;
+            border-radius: 12px;
+            color: #ffffff;
+        }
+
+        .summary-card h3 {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .summary-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #374151 100%);
+            color: #ffffff;
+        }
+
+        .summary-section .section-title h2 {
+            color: #ffffff;
+        }
+
+        .summary-section .section-number {
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        .summary-section .summary-card {
+            color: #ffffff;
+        }
+
+        .summary-section .summary-card h3 {
+            color: #ffffff;
+        }
+
+        .summary-section .summary-card p {
+            color: #ffffff;
+        }
+
+        .summary-section .summary-card li {
+            color: #ffffff;
+        }
+
+        .summary-section .summary-card strong {
+            color: #ffffff;
+        }
+
+        .summary-section .contact-info {
+            color: #ffffff;
+        }
+
+        .summary-section .contact-item {
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 12px;
+            }
+            
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .section {
+                padding: 24px;
+            }
+            
+            .concept-grid,
+            .tool-grid,
+            .info-source-grid,
+            .business-logic-grid,
+            .project-showcase,
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .business-logic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item strong {
+            min-width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header fade-in">
+            <h1>MBA社群AI分享完整方案</h1>
+            <p>从工具使用到产品开发的完整指南</p>
+        </div>
+
+        <nav class="nav fade-in">
+            <ul>
+                <li><a href="#survey"><i class="fas fa-poll"></i> 开场调研</a></li>
+                <li><a href="#advanced"><i class="fas fa-brain"></i> 进阶秘籍</a></li>
+                <li><a href="#development"><i class="fas fa-code"></i> 产品开发</a></li>
+                <li><a href="#learning"><i class="fas fa-graduation-cap"></i> 学习路径</a></li>
+            </ul>
+        </nav>
+
+        <section id="survey" class="section survey-section fade-in">
+            <div class="section-title">
+                <div class="section-number">开场</div>
+                <h2>调查问题设计</h2>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">现场</div>
+                    <h3><i class="fas fa-users"></i> 快速调研（举手投票）</h3>
+                </div>
+                
+                <div class="survey-item">
+                    <h4><i class="fas fa-fire"></i> 使用频率</h4>
+                    <p>每天用AI的举手 → 每周用的 → 偶尔用的 → 没用过的</p>
+                </div>
+                
+                <div class="survey-item">
+                    <h4><i class="fas fa-chart-line"></i> 使用深度</h4>
+                    <p>只用ChatGPT聊天的 → 会写复杂Prompt的 → 用过API/插件的 → 自己开发过AI应用的</p>
+                </div>
+                
+                <div class="survey-item">
+                    <h4><i class="fas fa-target"></i> 使用场景</h4>
+                    <p>工作提效 → 学习研究 → 创意娱乐 → 商业决策</p>
+                </div>
+                
+                <div class="survey-item">
+                    <h4><i class="fas fa-lightbulb"></i> 认知边界</h4>
+                    <p>觉得AI很神秘的 → 了解基本原理的 → 关注商业机会的</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 24px; font-style: italic; text-align: center; font-size: 1.1rem;">
+                "根据调研结果，我今天会重点讲解适合大家层次的内容，让每个人都能带走3个立刻可用的AI技巧。"
+            </div>
+        </section>
+
+        <section id="advanced" class="section fade-in">
+            <div class="section-title">
+                <div class="section-number">第一部分</div>
+                <h2>AI深度使用者的进阶秘籍</h2>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">1.1</div>
+                    <h3><i class="fas fa-book"></i> AI 核心概念小词典</h3>
+                </div>
+                
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <h4><i class="fas fa-hashtag"></i> Token</h4>
+                        <div class="professional">
+                            <strong>专业解释：</strong>Token是大语言模型处理文本的最小单元，可以是一个字、一个词、或一个子词片段。模型在训练和推理时，会把输入文本拆分为一连串的tokens，再逐个预测下一个token。它同时也是计费和计算的基本单位。
+                        </div>
+                        <div class="simple">
+                            <strong>通俗解释：</strong>AI理解人类语言的最小单元，像是字母和笔画
+                        </div>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4><i class="fas fa-thermometer-half"></i> Temperature</h4>
+                        <div class="professional">
+                            <strong>专业解释：</strong>生成模型在采样下一个token的概率分布时，Temperature控制分布的平滑程度。数值低时（接近0）模型更倾向选择概率最高的词；数值高时（接近1甚至>1）则会增加随机性。
+                        </div>
+                        <div class="simple">
+                            <strong>通俗解释：</strong>也就是AI的"创意度"，0=严谨，1=天马行空
+                        </div>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4><i class="fas fa-dice"></i> Top-K</h4>
+                        <div class="professional">
+                            <strong>专业解释：</strong>在生成时，只考虑概率最高的前K个候选词，其余词的概率直接丢弃，再在这K个中按概率重新采样。
+                        </div>
+                        <div class="simple">
+                            <strong>通俗解释：</strong>想象你在点餐：菜单上100道菜，AI只看前K道热门菜，然后随机点一道。K越小→越保守；K越大→越有探索性。
+                        </div>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4><i class="fas fa-ghost"></i> 幻觉（Hallucination）</h4>
+                        <div class="professional">
+                            <strong>专业解释：</strong>在大语言模型生成过程中，由于缺乏足够的训练样本或推理链路错误，模型可能输出与事实不符、逻辑错误或凭空捏造的信息。
+                        </div>
+                        <div class="simple">
+                            <strong>通俗解释：</strong>AI有时候会"一本正经地胡说八道"。捏造一条不存在的法规、论文和"事实"。是需要人为干预的重灾区。
+                        </div>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4><i class="fas fa-pencil-alt"></i> Prompt</h4>
+                        <div class="professional">
+                            <strong>专业解释：</strong>指令提示，输入给大语言模型的自然语言或结构化文本，用来引导模型输出特定风格、格式或内容的结果。
+                        </div>
+                        <div class="simple">
+                            <strong>通俗解释：</strong>就是你和AI聊天的"话术"。说清楚了，AI才能干活。比如："帮我写个情书，200字，押韵。"
+                        </div>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4><i class="fas fa-code"></i> Vibe Coding</h4>
+                        <div class="professional">
+                            <strong>专业解释：</strong>一种轻量化、实验性强的编程方式，强调快速原型、氛围感和与AI协作的创造性开发过程。
+                        </div>
+                        <div class="simple">
+                            <strong>通俗解释：</strong>氛围感编程。用prompt调用AI输出编程的效果，但是不一定要人实际做coding的内容。
+                        </div>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4><i class="fas fa-file-alt"></i> Content Engineering</h4>
+                        <div class="professional">
+                            <strong>专业解释：</strong>在AI提示设计中，除了Prompt，还要补充背景资料、任务需求、输入输出示例等上下文，帮助模型更准确理解目标。
+                        </div>
+                        <div class="simple">
+                            <strong>通俗解释：</strong>就是"喂料"，先给AI背景知识（比如需求文档、产品介绍）
+                        </div>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4><i class="fas fa-search"></i> RAG</h4>
+                        <div class="professional">
+                            <strong>专业解释：</strong>一种"检索增强生成"方法。先从外部知识库检索相关文档，再把这些文档作为上下文输入模型，以减少幻觉、增加可追溯性。
+                        </div>
+                        <div class="simple">
+                            <strong>通俗解释：</strong>就像给AI装上一个"随身百科全书"。它不会只靠记忆瞎编，而是先查资料再回答。
+                        </div>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4><i class="fas fa-crosshairs"></i> Fine-Tuning</h4>
+                        <div class="professional">
+                            <strong>专业解释：</strong>在预训练模型的基础上，用精心准备的小规模领域数据进行二次训练，使模型参数更贴近特定任务或行业需求。
+                        </div>
+                        <div class="simple">
+                            <strong>通俗解释：</strong>大模型像个通才学生，啥都懂点；微调就像开小灶补课，让它在一个领域变成专家。
+                        </div>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4><i class="fas fa-plug"></i> MCP</h4>
+                        <div class="professional">
+                            <strong>专业解释：</strong>MCP是OpenAI提出的模型上下文协议，用于标准化AI模型和外部工具/数据源的交互方式。
+                        </div>
+                        <div class="simple">
+                            <strong>通俗解释：</strong>就像给AI插USB外设：想查资料→插个"数据库U盘"；想调GitHub→插个"代码库U盘"
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="takeaway">
+                    <i class="fas fa-star"></i> <strong>Takeaway</strong>：学会这10个词，你就能和技术团队/投资人专业对话
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">1.2</div>
+                    <h3><i class="fas fa-toolbox"></i> 工具矩阵，覆盖工作全场景</h3>
+                </div>
+                
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h4><i class="fas fa-robot"></i> ChatGPT</h4>
+                        <p>Memory Setting（感知对话偏好和项目进度）</p>
+                        <div class="tool-screenshot">
+                            <img src="image/GPT.png" alt="ChatGPT界面截图">
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <h4><i class="fas fa-link"></i> Kimi</h4>
+                        <p>扒链接专用</p>
+                        <div class="tool-screenshot">
+                            <img src="image/kimi.jpeg" alt="Kimi界面截图">
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <h4><i class="fab fa-google"></i> Gemini</h4>
+                        <p>Google生态集成</p>
+                        <div class="tool-screenshot">
+                            <img src="image/Gemini.png" alt="Gemini界面截图">
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <h4><i class="fas fa-terminal"></i> Claude Code</h4>
+                        <p>专业级报告撰写+Coding Manager</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4><i class="fas fa-brain"></i> DeepSeek & Qwen</h4>
+                        <p>开源替代方案</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4><i class="fas fa-edit"></i> 内容创作</h4>
+                        <p>NanoBanana、RoboNeo、Snipd</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4><i class="fas fa-palette"></i> 设计工作</h4>
+                        <p>Lovable V0 Bolt Figma（低代码界面设计）</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">1.3</div>
+                    <h3><i class="fas fa-user-tie"></i> AI 可以是最懂你的Mentor</h3>
+                </div>
+                
+                <div style="background: #f8fafc; padding: 24px; border-radius: 12px; border-left: 4px solid #1a1a1a;">
+                    <p><strong><i class="fas fa-lightbulb"></i> 实用场景：</strong></p>
+                    <p>因为大量的交互，AI记住你的工作背景、偏好、专业领域、目标、能力乃至性格包袱。</p>
+                    
+                    <ul class="arrow-list" style="margin-top: 16px;">
+                        <li>效率工具+知识学习工具</li>
+                        <li>每周工作复盘，AI提供改进建议</li>
+                        <li>个人学习计划，AI推荐资源和路径</li>
+                        <li>决策支持，基于你的价值观和目标</li>
+                        <li>情感复盘，正视自己的负面情绪，并行动消解</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">1.4</div>
+                    <h3><i class="fas fa-satellite-dish"></i> 信息源升级，构建AI雷达</h3>
+                </div>
+                
+                <div class="info-source-grid">
+                    <div class="info-source-card">
+                        <div class="info-source-header">
+                            <i class="fas fa-microscope"></i>
+                            <span>AI研究机构 & 科学家</span>
+                        </div>
+                        <div class="info-source-content">
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Andrew Ng</div>
+                                    <div class="description">AI Education, Stanford, Coursera创始人</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Yann LeCun</div>
+                                    <div class="description">Meta AI首席科学家, CNN之父</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Geoffrey Hinton</div>
+                                    <div class="description">深度学习教父, 图灵奖得主</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Andrej Karpathy</div>
+                                    <div class="description">前OpenAI/Tesla AI总监</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">OpenAI Research</div>
+                                    <div class="description">GPT系列论文发布</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">DeepMind</div>
+                                    <div class="description">AlphaGo, Gemini研发团队</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-source-card">
+                        <div class="info-source-header">
+                            <i class="fas fa-rocket"></i>
+                            <span>AI创业者 / 产品实验</span>
+                        </div>
+                        <div class="info-source-content">
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Sam Altman</div>
+                                    <div class="description">OpenAI CEO</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Dario Amodei</div>
+                                    <div class="description">Anthropic CEO (Claude)</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Emad Mostaque</div>
+                                    <div class="description">Stability AI CEO (Stable Diffusion)</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Harrison Chase</div>
+                                    <div class="description">LangChain创始人</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Aidan Gomez</div>
+                                    <div class="description">Cohere创始人, Transformer论文作者</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Lex Fridman</div>
+                                    <div class="description">AI研究者, 播客主持人</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-source-card">
+                        <div class="info-source-header">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>投资人 / VC / 孵化</span>
+                        </div>
+                        <div class="info-source-content">
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Reid Hoffman</div>
+                                    <div class="description">Greylock Partners, LinkedIn创始人</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Marc Andreessen</div>
+                                    <div class="description">a16z联合创始人</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">李开复</div>
+                                    <div class="description">创新工场董事长兼CEO</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">沈南鹏</div>
+                                    <div class="description">红杉资本中国创始合伙人</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Y Combinator</div>
+                                    <div class="description">顶级孵化器, OpenAI早期投资</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Benchmark</div>
+                                    <div class="description">专注早期AI投资</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-source-card">
+                        <div class="info-source-header">
+                            <i class="fas fa-cogs"></i>
+                            <span>产品人 / 创业者</span>
+                        </div>
+                        <div class="info-source-content">
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Julie Zhuo</div>
+                                    <div class="description">前Facebook设计VP, Sundae联合创始人</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Lenny Rachitsky</div>
+                                    <div class="description">产品增长专家, Newsletter作者</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Nathan Baschez</div>
+                                    <div class="description">Every联合创始人, AI产品分析师</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Connie Chan</div>
+                                    <div class="description">a16z合伙人, 专注消费科技</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Benedict Evans</div>
+                                    <div class="description">科技趋势分析师</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">梁宁</div>
+                                    <div class="description">湖畔大学产品模块学术主任</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-source-card">
+                        <div class="info-source-header">
+                            <i class="fas fa-newspaper"></i>
+                            <span>媒体 / 播客</span>
+                        </div>
+                        <div class="info-source-content">
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">The Information</div>
+                                    <div class="description">科技行业深度报道</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Stratechery</div>
+                                    <div class="description">Ben Thompson科技战略分析</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">AI Breakdown</div>
+                                    <div class="description">每日AI新闻播客</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Acquired</div>
+                                    <div class="description">科技公司深度解析播客</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">机器之心</div>
+                                    <div class="description">AI领域专业媒体</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">量子位</div>
+                                    <div class="description">AI科技新闻报道</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-source-card">
+                        <div class="info-source-header">
+                            <i class="fas fa-users"></i>
+                            <span>社区 / 创业氛围</span>
+                        </div>
+                        <div class="info-source-content">
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Hacker News</div>
+                                    <div class="description">技术创业者聚集地</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Product Hunt</div>
+                                    <div class="description">新产品发布平台</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">AI Twitter</div>
+                                    <div class="description">AI从业者活跃社区</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">GitHub</div>
+                                    <div class="description">开源AI项目集散地</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Discord AI Communities</div>
+                                    <div class="description">实时AI讨论群组</div>
+                                </div>
+                            </div>
+                            <div class="info-source-item">
+                                <div>
+                                    <div class="name">Reddit r/MachineLearning</div>
+                                    <div class="description">ML研究讨论社区</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="development" class="section fade-in">
+            <div class="section-title">
+                <div class="section-number">第二部分</div>
+                <h2>从工具使用到产品开发</h2>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">2.1</div>
+                    <h3><i class="fas fa-lightbulb"></i> 为什么要自己开发AI应用？</h3>
+                </div>
+                
+                <div class="business-logic-grid">
+                    <div class="logic-card">
+                        <h4><i class="fas fa-chart-line"></i> 商业逻辑</h4>
+                        <ul>
+                            <li>通用工具 → 行业定制 → 商业机会</li>
+                            <li>成本优势：API调用比雇人便宜90%</li>
+                            <li>速度优势：想法到原型，从6个月→48小时</li>
+                        </ul>
+                        <div style="margin-top: 16px; padding: 12px; background: #f8fafc; border-radius: 8px; font-style: italic;">
+                            <strong>类比：</strong>就像从用Excel→写宏→开发专业软件
+                        </div>
+                    </div>
+                    <div class="logic-card">
+                        <h4><i class="fas fa-user"></i> 个人角度</h4>
+                        <ul>
+                            <li>AI+灵感+品味+痛点=最完美的个人表达</li>
+                            <li>成为创造者，把AI设计变成生活艺术</li>
+                            <li>成为社交名片，更好地链接同频社群</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">2.2</div>
+                    <h3><i class="fas fa-laptop-code"></i> IDE选择：Cursor深度解析</h3>
+                </div>
+                
+                <div class="cursor-info">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                        <div>
+                            <h4><i class="fas fa-users"></i> 谁适合用</h4>
+                            <p>有编程需求但不想深入学代码的人</p>
+                        </div>
+                        <div>
+                            <h4><i class="fas fa-tasks"></i> 能干什么</h4>
+                            <p>自动化脚本、静态页面、集成网站、插件工具、小程序、App等</p>
+                        </div>
+                        <div>
+                            <h4><i class="fas fa-play"></i> 怎么用</h4>
+                            <p>自然语言描述需求 → AI生成代码 → 迭代优化</p>
+                        </div>
+                        <div>
+                            <h4><i class="fas fa-level-up-alt"></i> 进阶使用</h4>
+                            <p>Rules设定+MCP工具箱+周期开发意识+上下文工程</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cursor-screenshot-card">
+                    <div class="cursor-screenshot">
+                        <img src="image/cursor.png" alt="Cursor IDE界面截图">
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">2.3</div>
+                    <h3><i class="fas fa-eye"></i> 展会观察</h3>
+                </div>
+                
+                <div class="business-logic-grid">
+                    <div class="logic-card">
+                        <h4><i class="fas fa-desktop"></i> IDE展会观察</h4>
+                        <div class="project-link" style="margin-bottom: 16px;">
+                            <i class="fas fa-globe"></i>
+                            <a href="https://jianan-huang0609.github.io/WAIC_Site/" style="color: inherit; text-decoration: none;">网站链接</a>
+                        </div>
+                        <ul>
+                            <li><strong>蓬勃且野蛮生长的VB圈：</strong>开发者数量指数级上升</li>
+                            <li>IDE需求、VB Hunt需求旺盛</li>
+                            <li>产、展、销闭环还没跑通</li>
+                        </ul>
+                        <div style="margin-top: 16px; padding: 12px; background: #f8fafc; border-radius: 8px;">
+                            <strong><i class="fas fa-opportunity"></i> 个人机会：</strong>信息差+执行力+真实需求验证+个人品味+影响力
+                        </div>
+                        <div class="exhibition-screenshot">
+                            <img src="image/IDE.png" alt="IDE展会观察截图">
+                        </div>
+                    </div>
+                    <div class="logic-card">
+                        <h4><i class="fas fa-brain"></i> WAIC展会观察</h4>
+                        <div class="project-link" style="margin-bottom: 16px;">
+                            <i class="fas fa-globe"></i>
+                            <a href="https://jianan-huang0609.github.io/WAIC_Site/" style="color: inherit; text-decoration: none;">网站链接</a>
+                        </div>
+                        <ul>
+                            <li><strong>多模态AI：</strong>文本+图像+语音一体化</li>
+                            <li><strong>Agent生态：</strong>AI助手从单一功能向复合能力发展</li>
+                            <li><strong>行业落地：</strong>从通用工具向垂直应用深化</li>
+                        </ul>
+                        <div style="margin-top: 16px; padding: 12px; background: #f8fafc; border-radius: 8px; font-style: italic;">
+                            现场分享：展会上最让我印象深刻的3个产品
+                        </div>
+                        <div class="exhibition-screenshot">
+                            <img src="image/waic.png" alt="WAIC展会观察截图">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">2.4</div>
+                    <h3><i class="fas fa-rocket"></i> 项目展示</h3>
+                </div>
+                
+                <div class="project-showcase">
+                    <div class="project-card">
+                        <h4><i class="fas fa-user-md"></i> RAifry医疗注册助手</h4>
+                        <p>B2C Tool + B2B SaaS，提效70%</p>
+                        <a href="https://jianan-huang0609.github.io/PoC_Structure/" class="project-link">
+                            <i class="fas fa-globe"></i> 在线体验
+                        </a>
+                        <div class="project-screenshot">
+                            <img src="image/PoC.png" alt="RAifry医疗注册助手截图">
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h4><i class="fas fa-chart-bar"></i> 可视化笔记</h4>
+                        <p>个人需求驱动的产品探索</p>
+                        <a href="https://jianan-huang0609.github.io/KnowVis/Example.html" class="project-link">
+                            <i class="fas fa-globe"></i> 在线体验
+                        </a>
+                        <div class="project-screenshot">
+                            <img src="image/knowvis.png" alt="可视化笔记截图">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">2.5</div>
+                    <h3><i class="fas fa-comments"></i> 开放讨论</h3>
+                </div>
+                
+                <div style="background: #f8fafc; padding: 24px; border-radius: 12px; border-left: 4px solid #1a1a1a;">
+                    <ul class="arrow-list">
+                        <li>你的行业有哪些AI化机会？</li>
+                        <li>对我的项目有什么建议？</li>
+                        <li>有投资或合作意向吗？</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="learning" class="section fade-in">
+            <div class="section-title">
+                <div class="section-number">第三部分</div>
+                <h2>学习路径</h2>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">3.1</div>
+                    <h3><i class="fas fa-book-open"></i> 理论学习路径</h3>
+                </div>
+                
+                <div class="learning-path">
+                    <div class="learning-step">
+                        <h4><i class="fas fa-brain"></i> 理论打底</h4>
+                        <div class="learning-step-content">
+                            <ul class="arrow-list">
+                                <li>首先了解深度学习-deep learning（前馈神经网络、梯度传播）</li>
+                                <li>其次理解语言传播的演进（LLM-RNN-LSTM-Transformer自注意力、多头注意力的机制、位置编码、残差连接、前馈网络）</li>
+                                <li>最后是模型训练（Layer Norm、KV-Cache）</li>
+                                <li>分词（BPE、WordPiece、SentencePiece）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="learning-step">
+                        <h4><i class="fas fa-cog"></i> 模型认知</h4>
+                        <div class="learning-step-content">
+                            <ul class="arrow-list">
+                                <li>BERT、GPT、LAMA模型本身的结构差异和设计理念</li>
+                                <li>（目前行业都在用的decoder-only，就具备着推理能力高、部署简单、延迟低）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="learning-step">
+                        <h4><i class="fas fa-crosshairs"></i> 训练和对齐</h4>
+                        <div class="learning-step-content">
+                            <ul class="arrow-list">
+                                <li>学习如何采集数据、清洗数据、构造好的结构化数据</li>
+                                <li>训练阶段了解学习率调度、优化器选择、混合精度训练、梯度累积</li>
+                                <li>微调阶段：LoRA、QLoRA、Prompt Tuning；目标是能完整执行一轮的SFT</li>
+                                <li>对齐阶段：RLHF、DPO</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="learning-step">
+                        <h4><i class="fas fa-server"></i> 工程化</h4>
+                        <div class="learning-step-content">
+                            <p>（能部署并跑通，并且得到比较好的效率）</p>
+                            <ul class="arrow-list">
+                                <li>掌握模型压缩（蒸馏、量化、剪枝）</li>
+                                <li>学会分布式训练（数据并行、模型并行、流水线并行、ZeRo技术优化方式）</li>
+                                <li>推理部署：KV缓存优化、动态batch调整、服务化封装、容灾体系</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="learning-step">
+                        <h4><i class="fas fa-rocket"></i> 前沿应用</h4>
+                        <div class="learning-step-content">
+                            <ul class="arrow-list">
+                                <li>构建RAG系统、打造Agent系统、拓展多模态能力（如Clip、Blip处理图文的能力）</li>
+                                <li>评估优化：内容理解、幻觉识别、有害内容的过滤、隐私保护</li>
+                                <li>合规方面（模型的版本管理机制、接入用户反馈等）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 24px; text-align: center; font-style: italic; color: #64748b;">
+                        <strong>推荐：</strong>YouTube、论文、博客综合学习 
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div class="subsection-number">3.2</div>
+                    <h3><i class="fas fa-code-branch"></i> AI 系统能力演进 V1--V5</h3>
+                </div>
+                
+                <div style="background: #f8fafc; padding: 20px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid #64748b;">
+                    <p><strong><i class="fas fa-info-circle"></i> 说明：</strong>这里的V1--V5并非具体产品路线，而是一个通用的AI系统演进框架。它展示了从「简单可行性验证」到「复杂多智能体协作」再到「自学习」的逐步升级路径。</p>
+                </div>
+                
+                <div class="version-grid">
+                    <div class="version-card">
+                        <h4><i class="fas fa-play"></i> V1 --- 框架生成 & 单点验证</h4>
+                        <div class="goal">
+                            <strong>目标：</strong>验证可行性，证明AI能够生成文档/任务框架，并在单个模块内完成一致性或正确性检查。
+                        </div>
+                        <div class="tech-path">
+                            <strong><i class="fas fa-tools"></i> 技术路径：</strong>
+                            <ul class="arrow-list">
+                                <li>API调用（GPT、Gemini等大模型）</li>
+                                <li>Prompt链 & 规则匹配</li>
+                                <li>OCR支持（文本提取）</li>
+                                <li>多Prompt分链路管理</li>
+                            </ul>
+                        </div>
+                        <div class="resources">
+                            <strong><i class="fas fa-book"></i> 参考资源：</strong><br>
+                            RapidOCR --- 高效OCR工具<br>
+                            Bedrock Prompt Chaining示例 --- 多链路管理范例
+                        </div>
+                    </div>
+
+                    <div class="version-card">
+                        <h4><i class="fas fa-expand"></i> V2 --- 全流程扩展 & 轻量 RAG</h4>
+                        <div class="goal">
+                            <strong>目标：</strong>扩展到更复杂的任务范围，引入检索增强生成（RAG），提升检索与生成的准确性。
+                        </div>
+                        <div class="tech-path">
+                            <strong><i class="fas fa-tools"></i> 技术路径：</strong>
+                            <ul class="arrow-list">
+                                <li>文本清洗与标准化、切块向量化</li>
+                                <li>稀疏检索（BM25）+ 向量检索（FAISS/Chroma/Pinecone）混合</li>
+                                <li>ReRank（Cross-Encoder / Cohere / BGE）</li>
+                                <li>自动评估（RAGTruth等）</li>
+                            </ul>
+                        </div>
+                        <div class="resources">
+                            <strong><i class="fas fa-book"></i> 参考资源：</strong><br>
+                            RAGFlow --- 开源RAG引擎<br>
+                            RAGTruth --- 事实标注数据集<br>
+                            ARES --- 自动评估框架
+                        </div>
+                    </div>
+
+                    <div class="version-card">
+                        <h4><i class="fas fa-project-diagram"></i> V3 --- Planner + 小模型优化</h4>
+                        <div class="goal">
+                            <strong>目标：</strong>实现任务拆解、模块化执行；在特定子任务中使用轻量小模型进行优化。
+                        </div>
+                        <div class="tech-path">
+                            <strong><i class="fas fa-tools"></i> 技术路径：</strong>
+                            <ul class="arrow-list">
+                                <li>Planner / 任务图（LangGraph等）</li>
+                                <li>子任务级LoRA / PEFT微调</li>
+                                <li>示例驱动优化、数据对优化</li>
+                            </ul>
+                        </div>
+                        <div class="resources">
+                            <strong><i class="fas fa-book"></i> 参考资源：</strong><br>
+                            LangGraph --- 有状态Agent编排框架<br>
+                            Open Deep Research --- 多Agent深度研究框架<br>
+                            DeepAgents --- 自主Agent框架<br>
+                            MetaGPT --- 多角色协作框架
+                        </div>
+                    </div>
+
+                    <div class="version-card">
+                        <h4><i class="fas fa-sitemap"></i> V4 --- 多 Agent Pipeline</h4>
+                        <div class="goal">
+                            <strong>目标：</strong>形成可用的多智能体流水线，支持跨模块协作、自动报告生成等复杂工作流。
+                        </div>
+                        <div class="tech-path">
+                            <strong><i class="fas fa-tools"></i> 技术路径：</strong>
+                            <ul class="arrow-list">
+                                <li>多Agent协作：Retriever / Extractor / Checker / Composer</li>
+                                <li>审核Agent（Auditor）+ 人机反馈闭环</li>
+                                <li>子Agent与消息流转机制</li>
+                            </ul>
+                        </div>
+                        <div class="resources">
+                            <strong><i class="fas fa-book"></i> 参考资源：</strong><br>
+                            deepagents --- 子代理与虚拟文件系统<br>
+                            MetaGPT --- 虚拟团队多Agent协作<br>
+                            open_deep_research --- 自学习雏形
+                        </div>
+                    </div>
+
+                    <div class="version-card">
+                        <h4><i class="fas fa-graduation-cap"></i> V5 --- RLHF + 自学习</h4>
+                        <div class="goal">
+                            <strong>目标：</strong>模拟专家角色，具备自学习与迭代优化能力。
+                        </div>
+                        <div class="tech-path">
+                            <strong><i class="fas fa-tools"></i> 技术路径：</strong>
+                            <ul class="arrow-list">
+                                <li>RLHF（强化学习 + 人类反馈）</li>
+                                <li>Learner + Auditor闭环优化</li>
+                                <li>知识图谱与奖励模型结合</li>
+                            </ul>
+                        </div>
+                        <div class="resources">
+                            <strong><i class="fas fa-book"></i> 参考资源：</strong><br>
+                            awesome-RLHF --- RLHF学习资源<br>
+                            awesome-foundation-agents --- 多Agent系统资料<br>
+                            LLM Agent Papers --- Agent必读论文合集
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="takeaway">
+                    <i class="fas fa-lightbulb"></i> <strong>学习建议：</strong>V1--V2阶段适合入门者，重点掌握Prompt设计、OCR、RAG基础；V3--V4阶段面向进阶者，重点研究任务规划、多Agent框架；V5阶段属于前沿探索，需要结合RLHF、奖励建模和知识图谱。
+                </div>
+            </div>
+        </section>
+
+        <section class="section summary-section fade-in">
+            <div class="section-title">
+                <div class="section-number">总结</div>
+                <h2>行动计划</h2>
+            </div>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3><i class="fas fa-bullseye"></i> 立即可用的Tips</h3>
+                    <ul class="arrow-list">
+                        <li><strong>黑话库：</strong>掌握10个AI核心概念，与技术团队专业对话</li>
+                        <li><strong>信息源：</strong>构建个人AI雷达系统，及时捕获行业动态</li>
+                        <li><strong>学习路径：</strong>从V1到V5循序渐进，理论与实践并重</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3><i class="fas fa-rocket"></i> 下一步行动</h3>
+                    <ul class="arrow-list">
+                        <li>增加使用频率和广度</li>
+                        <li>全平台增加信息源</li>
+                        <li>结合业务痛点思考AI可能性</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3><i class="fas fa-handshake"></i> 联系方式</h3>
+                    <p><strong>医械 RA 圈 · 最懂 AI · 爱游泳的辩论选手 🏊‍♀️</strong></p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <strong>微信：</strong>17621536169
+                        </div>
+                        <div class="contact-item">
+                            <strong>GitHub：</strong>Jianan-Huang0609
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p><i class="fas fa-copyright"></i> 2024 MBA社群AI分享 | 让每个人都能掌握AI的力量</p>
+        </footer>
+    </div>
+
+    <script>
+        // 添加滚动动画效果
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有需要动画的元素
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 添加进度指示器
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            let progressBar = document.querySelector('.progress-bar');
+            if (!progressBar) {
+                progressBar = document.createElement('div');
+                progressBar.className = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 0%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #1a1a1a, #374151);
+                    z-index: 10000;
+                    transition: width 0.3s ease;
+                `;
+                document.body.appendChild(progressBar);
+            }
+            
+            progressBar.style.width = scrolled + '%';
+        });
+
+        // 添加卡片悬停效果
+        document.querySelectorAll('.concept-card, .tool-card, .project-card, .info-source-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px)';
+                this.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.06)';
+            });
+        });
+
+        // 添加导航高亮效果
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
