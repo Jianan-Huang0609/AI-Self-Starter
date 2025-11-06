@@ -442,6 +442,31 @@
             border: 1px solid #e2e8f0;
         }
 
+        .tool-video {
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        .tool-video video {
+            max-width: 100%;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .video-card {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .video-card {
+                grid-column: span 1;
+            }
+        }
+
         .project-showcase {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -913,6 +938,27 @@
                         </div>
                     </div>
                     <div class="tool-card">
+                        <h4><i class="fas fa-robot"></i> ChatGPT</h4>
+                        <p>自定义Prompt+API，建立GPTs私人管家</p>
+                        <div class="tool-screenshot">
+                            <img src="image/IMG_3.png" alt="ChatGPT自定义Prompt截图">
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <h4><i class="fas fa-robot"></i> ChatGPT</h4>
+                        <p>1. 了解你的学习计划偏好；2.对接个人知识库直接操作</p>
+                        <div class="tool-screenshot">
+                            <img src="image/IMG_2.PNG" alt="ChatGPT知识库对接截图">
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <h4><i class="fas fa-robot"></i> ChatGPT</h4>
+                        <p>Altas--AI浏览器：同步浏览用户页面，代理操作</p>
+                        <div class="tool-screenshot">
+                            <img src="image/IMG_5.png" alt="ChatGPT Altas浏览器截图">
+                        </div>
+                    </div>
+                    <div class="tool-card">
                         <h4><i class="fas fa-link"></i> Kimi</h4>
                         <p>扒链接专用</p>
                         <div class="tool-screenshot">
@@ -937,6 +983,9 @@
                     <div class="tool-card">
                         <h4><i class="fas fa-edit"></i> 内容创作</h4>
                         <p>NanoBanana、RoboNeo、Snipd</p>
+                        <div class="tool-screenshot">
+                            <img src="image/IMG_4.jpg" alt="内容创作截图">
+                        </div>
                     </div>
                     <div class="tool-card">
                         <h4><i class="fas fa-palette"></i> 设计工作</h4>
@@ -1333,7 +1382,7 @@
                         <h4><i class="fas fa-desktop"></i> IDE展会观察</h4>
                         <div class="project-link" style="margin-bottom: 16px;">
                             <i class="fas fa-globe"></i>
-                            <a href="https://jianan-huang0609.github.io/WAIC_Site/" style="color: inherit; text-decoration: none;">网站链接</a>
+                            <a href="https://jianan-huang0609.github.io/Cursor_MeetsUp/" style="color: inherit; text-decoration: none;">网站链接</a>
                         </div>
                         <ul>
                             <li><strong>蓬勃且野蛮生长的VB圈：</strong>开发者数量指数级上升</li>
@@ -1378,14 +1427,11 @@
                 
                 <div class="project-showcase">
                     <div class="project-card">
-                        <h4><i class="fas fa-user-md"></i> RAifry医疗注册助手</h4>
-                        <p>B2C Tool + B2B SaaS，提效70%</p>
-                        <a href="https://jianan-huang0609.github.io/PoC_Structure/" class="project-link">
+                        <h4><i class="fas fa-plane"></i> Promptable旅游助手</h4>
+                        <p>甩来链接，生成网站</p>
+                        <a href="https://jianan-huang0609.github.io/Promptable_TravelDesign/SINGAPORE_v4.html" class="project-link">
                             <i class="fas fa-globe"></i> 在线体验
                         </a>
-                        <div class="project-screenshot">
-                            <img src="image/PoC.png" alt="RAifry医疗注册助手截图">
-                        </div>
                     </div>
                     <div class="project-card">
                         <h4><i class="fas fa-chart-bar"></i> 可视化笔记</h4>
@@ -1459,7 +1505,7 @@
                             <ul class="arrow-list">
                                 <li>学习如何采集数据、清洗数据、构造好的结构化数据</li>
                                 <li>训练阶段了解学习率调度、优化器选择、混合精度训练、梯度累积</li>
-                                <li>微调阶段：LoRA、QLoRA、Prompt Tuning；目标是能完整执行一轮的SFT</li>
+                                <li>微调阶段：Prompt Engineering-->Prompt tuning-->SFT-->DPO-->LoRA\QLoRA</li>
                                 <li>对齐阶段：RLHF、DPO</li>
                             </ul>
                         </div>
@@ -1669,8 +1715,8 @@
     <script>
         // 添加滚动动画效果
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.01,
+            rootMargin: '0px 0px 0px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -1680,6 +1726,29 @@
                 }
             });
         }, observerOptions);
+
+        // 检查初始就在视口中的元素
+        const checkInitialVisibility = () => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                if (isVisible) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+
+        // 页面加载时检查
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', checkInitialVisibility);
+        } else {
+            checkInitialVisibility();
+        }
+
+        // 页面完全加载后再次检查（确保所有内容都已渲染）
+        window.addEventListener('load', () => {
+            setTimeout(checkInitialVisibility, 100);
+        });
 
         // 观察所有需要动画的元素
         document.querySelectorAll('.fade-in').forEach(el => {
